@@ -10,6 +10,7 @@
     color:yellow;
     padding:1.5em;
     border-radius:10px;
+    font-size:3em;
 
 
 }
@@ -32,11 +33,6 @@ li{
         overflow-x:hidden;
         -moz-overflow-x:hidden;
         -webkit-overflow-x:hidden;
-
-        font-family:;
-
-
-
         background-repeat:no-repeat;
         min-height: 2500px;
         min-width:100%;
@@ -46,12 +42,7 @@ li{
 
     }
 
-    html{
 
-
-
-
-    }
 
     .container-fluid{
         margin: 0;
@@ -59,9 +50,7 @@ li{
         min-width:100%;
     }
 
-    header{
 
-    }
 
      @keyframes diminuilogo {
         0%   {min-height: 4em;}
@@ -164,8 +153,7 @@ li{
 
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+
         border: 1px solid rgba(255, 255, 255, 0.3);
 
 
@@ -190,6 +178,10 @@ li{
 
         font-size: 1.5em;
         text-shadow: none;
+    }
+
+    .form-control{
+        width:100%;
     }
 
 
@@ -281,26 +273,11 @@ li{
         overflow-x:hidden;
         -moz-overflow-x:hidden;
         -webkit-overflow-x:hidden;
-
-        font-family:;
-
-
-
-
         height: 1000px;
         min-width:100%;
-
-
-
-
     }
 
-    html{
 
-
-
-
-    }
 
     .container-fluid{
         margin: 0;
@@ -340,6 +317,28 @@ li{
         min-height: 10em;
     }
 
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+        transform: scale(2);
+      }
+      51% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    #header-copy-lp-2{
+         animation: blink 1s  10;
+    }
+
 
 
     #copy-lp{
@@ -357,6 +356,7 @@ li{
     #texto-copy-lp{
         text-align: center;
         font-size:2em;
+
     }
 
     #faixa-giratoria{
@@ -388,28 +388,16 @@ li{
 
     }
 
+
+
     #form{
-        font-weight: 700;
-         background-image: url("capa-formulario-2.png");
-        background-color: yellow;
-        background-repeat: no-repeat;
-         background-position: center;
-         background-size: cover;
-
-
-
-    }
-
-    form{
         position: relative;
         top:0em;
         left:0.5em;
         /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
         border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+
         border: 1px solid rgba(255, 255, 255, 0.3);
         text-shadow: 1px 1px 1px 1px;
         min-height: 31em;
@@ -530,36 +518,25 @@ li{
         overflow-x:hidden;
         -moz-overflow-x:hidden;
         -webkit-overflow-x:hidden;
-
-        font-family:;
-
+        height: 2000px;
 
 
-        background-repeat:no-repeat;
-        height: 1000px;
-        min-width:100%;
 
 
 
 
     }
 
-    html{
 
 
 
-
-    }
 
     .container-fluid{
-        margin: 0;
-        padding:0;
-        min-width:100%;
+
+        max-width:100%;
     }
 
-    header{
-        background: black;
-    }
+
 
      @keyframes diminuilogo {
         0%   {min-height: 4em;}
@@ -570,7 +547,7 @@ li{
     }
 
     #logomarca{
-        min-height: 5em;
+        max-height: 5em;
         animation: diminuilogo 5s 3s;
     }
 
@@ -584,12 +561,21 @@ li{
     }
 
     #carousel-capa{
+        max-width:50%;
+
+        position:absolute;
+        top:8em;
+        left:8em;
+        padding:0.5em;
 
 
     }
 
+
+
     .img-carousel{
-        max-height: 250px;
+        min-height: 300px;
+
 
     }
 
@@ -597,16 +583,39 @@ li{
         max-width:30%;
         min-height:30%;
         position: relative;
-        top:-0.5em;
-        left:2em;
+        top:0.5em;
+        left:65%;
 
 
     }
 
-    #header-copy-lp{
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+        transform: scale(2);
+      }
+      51% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    #header-copy-lp-2{
+         animation: blink 1s  10;
+    }
+
+    #header-copy-lp, #header-copy-lp-2{
         position: relative;
-        top:-3.8em;
-        left: 7.5em;
+        top:0em;
+        left: 30%;
         font-size: 1.5em;
 
     }
@@ -626,8 +635,10 @@ li{
         font-weight: 700;
          text-shadow: 2px 2px 4px #ffffff;
          font-size: 1.5em;
-         max-height: 5em;
-
+         max-width: 90%;
+         padding:auto;
+         margin:auto;
+         z-index:-1;
 
     }
 
@@ -658,43 +669,32 @@ li{
     #header-formulario{
 
         font-weight: 700;
-        font-size: 2em;
+        font-size: 1em;
+
+
 
     }
+
+
 
     #form{
-        font-weight: 700;
-         background-image: url("capa-formulario-2.png");
-        background-color: yellow;
-        background-repeat: no-repeat;
-         background-position: center;
-         background-size: cover;
-
-
-
-
-    }
-
-    form{
         position: relative;
-        top:1em;
+        top:0em;
         /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
         border-radius: 2%;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+
         border: 1px solid rgba(255, 255, 255, 0.3);
         text-shadow: 1px 1px 1px 1px;
         max-width:49%;
-        min-height: 35em;
+        min-height: 35.5em;
         border:1px solid black;
 
     }
 
     .label-form{
         position: relative;
-        top:3.5em;
+        top:4.5em;
         background: gold;
         border-radius: 10%;
         padding: 0.5em;
@@ -712,13 +712,7 @@ li{
 
     }
 
-    #parte-2-form{
-         box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1);
-         position: relative;
-         top:6em;
-         margin-top:1em;
 
-    }
 
     .form-group{
         position: relative;
@@ -727,9 +721,16 @@ li{
         max-width: 90%;
     }
 
+
+    #btn-salvar{
+        position:relative;
+        top:5em;
+
+    }
+
     #caracteristica-imovel{
         position: relative;
-        top:-35em;
+        top:-36em;
         left:52%;
         max-width: 45%;
          border-radius: 10%;
@@ -737,7 +738,7 @@ li{
     }
 
     .caracteristica-imovel{
-         background-image: url("fundo-caracteristica-imovel.png");
+         background-image: url("https://andressa-anthero7.github.io/LP-CORRETORES-IMOB/fundo-caracteristica-imovel.png");
         background-color: yellow;
         background-repeat: no-repeat;
          background-position: center;
@@ -765,7 +766,7 @@ li{
     #localizacao{
         position: relative;
         left:0;
-        top:-33em;
+        top:-35em;
     }
 
     #header-localizacao{
@@ -785,7 +786,7 @@ li{
     #copy-final{
         position: relative;
         left:0;
-        top:-15em;
+        top:-20em;
         font-size: 2em;
     }
 
@@ -812,47 +813,42 @@ li{
 
     footer{
         position: relative;
-        top:-20em;
+        top:10em;
     }
 }
 
-@media (min-width: 1400.01px) and (max-width:  2559.98px) {
-    body{
+@media (min-width: 1400.01px) and (max-width:  2559.97px) {
+     body{
         margin:0;
         padding:0;
         overflow-x:hidden;
         -moz-overflow-x:hidden;
         -webkit-overflow-x:hidden;
-
-        font-family:;
-
+        height: 2000px;
 
 
-        background-repeat:no-repeat;
-        height: 1000px;
-        min-width:100%;
 
 
 
 
     }
 
-    html{
 
-
-
-
-    }
 
     .container-fluid{
-        margin: 0;
-        padding:0;
-        min-width:100%;
+
+        max-width:100%;
     }
 
     header{
-        background: black;
+        position:relative;
+        left:-1em;
+        width:110%;
     }
+
+
+
+
 
      @keyframes diminuilogo {
         0%   {min-height: 4em;}
@@ -865,6 +861,8 @@ li{
     #logomarca{
         min-height: 5em;
         animation: diminuilogo 5s 3s;
+        margin-left:3em;
+        padding:1em;
     }
 
     li{
@@ -877,12 +875,22 @@ li{
     }
 
     #carousel-capa{
+        width:50%;
+
+        position:relative;
+        top:1.1em;
+        left:8em;
+        padding:0.5em;
 
 
     }
 
+
+
     .img-carousel{
-        max-height: 250px;
+        min-height:18em;
+
+
 
     }
 
@@ -890,16 +898,16 @@ li{
         max-width:30%;
         min-height:30%;
         position: relative;
-        top:-0.5em;
-        left:2em;
+        top:0em;
+        left:65%;
 
 
     }
 
-    #header-copy-lp{
+    #header-copy-lp, #header-copy-lp-2{
         position: relative;
-        top:-3.8em;
-        left: 7.5em;
+        top:0em;
+        left: 30%;
         font-size: 1.5em;
 
     }
@@ -919,8 +927,12 @@ li{
         font-weight: 700;
          text-shadow: 2px 2px 4px #ffffff;
          font-size: 1.5em;
-         max-height: 5em;
-
+         max-width: 90%;
+         padding:auto;
+         margin:auto;
+         z-index:-1;
+         position:relative;
+         top:-12em;
 
     }
 
@@ -928,6 +940,8 @@ li{
 
     #faixa-giratoria{
         background: black;
+        position:relative;
+        top:-17em;
     }
 
     @keyframes blink{
@@ -953,24 +967,15 @@ li{
         font-weight: 700;
         font-size: 2em;
 
+
+
     }
+
+
 
     #form{
-        font-weight: 700;
-         background-image: url("capa-formulario-2.png");
-        background-color: yellow;
-        background-repeat: no-repeat;
-         background-position: center;
-         background-size: cover;
-
-
-
-
-    }
-
-    form{
         position: relative;
-        top:1em;
+        top:-16em;
         /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
         border-radius: 2%;
@@ -980,14 +985,14 @@ li{
         border: 1px solid rgba(255, 255, 255, 0.3);
         text-shadow: 1px 1px 1px 1px;
         max-width:49%;
-        min-height: 35em;
+        min-height: 35.5em;
         border:1px solid black;
 
     }
 
     .label-form{
         position: relative;
-        top:3.5em;
+        top:4.5em;
         background: gold;
         border-radius: 10%;
         padding: 0.5em;
@@ -1005,13 +1010,7 @@ li{
 
     }
 
-    #parte-2-form{
-         box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1);
-         position: relative;
-         top:6em;
-         margin-top:1em;
 
-    }
 
     .form-group{
         position: relative;
@@ -1020,17 +1019,24 @@ li{
         max-width: 90%;
     }
 
+
+    #btn-salvar{
+        position:relative;
+        top:5em;
+
+    }
+
     #caracteristica-imovel{
         position: relative;
-        top:-35em;
-        left:52%;
+        top:-52em;
+        left:55%;
         max-width: 45%;
          border-radius: 10%;
 
     }
 
     .caracteristica-imovel{
-         background-image: url("fundo-caracteristica-imovel.png");
+         background-image: url("https://andressa-anthero7.github.io/LP-CORRETORES-IMOB/fundo-caracteristica-imovel.png");
         background-color: yellow;
         background-repeat: no-repeat;
          background-position: center;
@@ -1058,7 +1064,7 @@ li{
     #localizacao{
         position: relative;
         left:0;
-        top:-33em;
+        top:-50em;
     }
 
     #header-localizacao{
@@ -1078,7 +1084,7 @@ li{
     #copy-final{
         position: relative;
         left:0;
-        top:-15em;
+        top:-25em;
         font-size: 2em;
     }
 
@@ -1105,50 +1111,44 @@ li{
 
     footer{
         position: relative;
-        top:-20em;
+        top:10em;
     }
-
 }
 
 
 
 /* Telas Wide Screen */
 @media (min-width: 2560.00px){
-       body{
+      body{
         margin:0;
         padding:0;
         overflow-x:hidden;
         -moz-overflow-x:hidden;
         -webkit-overflow-x:hidden;
 
-        font-family:;
 
 
+        max-width:2500px;
 
-        background-repeat:no-repeat;
-        height: 1000px;
-        min-width:80%;
+        min-height:5000px;
 
 
 
 
     }
 
-    html{
 
-        max-width:80%;
-
-
-    }
 
     .container-fluid{
-        margin: 0;
-        padding:0;
+        margin: auto;
+        padding:auto;
         min-width:100%;
+
     }
 
     header{
-        background: black;
+        position:relative;
+        left:-1em;
     }
 
      @keyframes diminuilogo {
@@ -1162,6 +1162,8 @@ li{
     #logomarca{
         min-height: 5em;
         animation: diminuilogo 5s 3s;
+        margin-left:3em;
+        padding:1em;
     }
 
     li{
@@ -1170,16 +1172,20 @@ li{
 
     ul{
         position: relative;
-        left:-1.5em;
+        left:0em;
+        padding:1em;
     }
 
     #carousel-capa{
+        max-width:80%;
+        padding:auto;
+        margin:auto;
 
 
     }
 
     .img-carousel{
-        max-height: 350px;
+        min-height: 350px;
 
     }
 
@@ -1187,17 +1193,24 @@ li{
         max-width:20%;
         min-height:20%;
         position: relative;
-        top:-0.5em;
-        left:7em;
+        top:0em;
+        left:10em;
 
 
     }
 
     #header-copy-lp{
         position: relative;
-        top:-3.8em;
+        top:-2em;
         left: 7.5em;
-        font-size: 1.5em;
+        font-size: 4em;
+
+    }
+
+    #header-copy-lp-2{
+        marg:auto;
+        padding:auto;
+        font-size: 4em;
 
     }
 
@@ -1206,17 +1219,19 @@ li{
         position: relative;
         left:25em;
         top:-5.5em;
-        font-size: 1.2em;
+        font-size:2em;
         padding: 0.2em;
     }
+
+
 
 
 
     #copy-lp{
         font-weight: 700;
          text-shadow: 2px 2px 4px #ffffff;
-         font-size: 1.5em;
-         max-height: 5em;
+
+         max-height: 10em;
 
 
     }
@@ -1252,43 +1267,33 @@ li{
 
     }
 
+
+
     #form{
-        font-weight: 700;
-         background-image: url("capa-formulario-2.png");
-        background-color: yellow;
-        background-repeat: no-repeat;
-         background-position: center;
-         background-size: cover;
-
-
-
-
-    }
-
-    form{
         position: relative;
-        top:1em;
+        top:35em;
         /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
         border-radius: 2%;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+
         border: 1px solid rgba(255, 255, 255, 0.3);
         text-shadow: 1px 1px 1px 1px;
         max-width:49%;
-        min-height: 35em;
+        min-height: 40em;
         border:1px solid black;
+        padding:5em;
 
     }
 
     .label-form{
         position: relative;
-        top:3.5em;
+        top:4.1em;
         background: gold;
         border-radius: 10%;
         padding: 0.5em;
         line-height:0.7em;
+        font-size:2em;
 
     }
 
@@ -1297,29 +1302,33 @@ li{
         font-size: 1.5em;
         text-shadow: none;
          max-width: 100%;
+
          position: relative;
          top:1.9em;
-
     }
 
-    #parte-2-form{
-         box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1);
-         position: relative;
-         top:6em;
-         margin-top:1em;
-
+    .form-control{
+        min-height:5em;
+        border-radius:10px;
     }
+
+    #btn-salvar{
+        margin:5em;
+        border-radius:10px;
+    }
+
+
 
     .form-group{
         position: relative;
         left:2em;
-
+        padding:1.5em;
         max-width: 90%;
     }
 
     #caracteristica-imovel{
         position: relative;
-        top:-35em;
+        top:-22em;
         left:52%;
         max-width: 45%;
          border-radius: 10%;
@@ -1327,19 +1336,26 @@ li{
     }
 
     .caracteristica-imovel{
-         background-image: url("fundo-caracteristica-imovel.png");
+
+         background-image: url("https://andressa-anthero7.github.io/LP-CORRETORES-IMOB/fundo-caracteristica-imovel.png");
         background-color: yellow;
         background-repeat: no-repeat;
          background-position: center;
          background-size: cover;
 
-          min-height: 36em;
+
+          min-height: 40em;
+    }
+
+    .item-caracteristica-imovel{
+        font-size:3.5em;
+
     }
 
     #header-caracteristica{
         white-space: nowrap;
         font-weight: 700;
-
+        font-size:2em;
         background:gold;
         border-radius: 5%;
 
@@ -1355,7 +1371,7 @@ li{
     #localizacao{
         position: relative;
         left:0;
-        top:-20em;
+        top:-15em;
     }
 
     #header-localizacao{
@@ -1375,13 +1391,13 @@ li{
     #copy-final{
         position: relative;
         left:0;
-        top:-15em;
+        top:0em;
         font-size: 2em;
     }
 
     #texto-copy-final{
         position: relative;
-        left:1em;
+        left:13em;
     }
 
     h6{
@@ -1401,8 +1417,8 @@ li{
     }
 
     footer{
-        position: relative;
-        top:-5em;
+        position: absolute;
+        top:4900px;
+        left:45%;
     }
-
 }

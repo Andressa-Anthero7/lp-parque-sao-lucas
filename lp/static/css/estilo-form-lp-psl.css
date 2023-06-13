@@ -694,7 +694,7 @@ li{
 
     .label-form{
         position: relative;
-        top:3.5em;
+        top:4.5em;
         background: gold;
         border-radius: 10%;
         padding: 0.5em;
@@ -825,6 +825,7 @@ li{
         -moz-overflow-x:hidden;
         -webkit-overflow-x:hidden;
         height: 2000px;
+
 
 
 
@@ -991,7 +992,7 @@ li{
 
     .label-form{
         position: relative;
-        top:3.5em;
+        top:4.5em;
         background: gold;
         border-radius: 10%;
         padding: 0.5em;
@@ -1287,7 +1288,7 @@ li{
 
     .label-form{
         position: relative;
-        top:1.8em;
+        top:4.1em;
         background: gold;
         border-radius: 10%;
         padding: 0.5em;
@@ -1301,10 +1302,14 @@ li{
         font-size: 1.5em;
         text-shadow: none;
          max-width: 100%;
+
          position: relative;
          top:1.9em;
+    }
 
-
+    .form-control{
+        min-height:5em;
+        border-radius:10px;
     }
 
     #btn-salvar{

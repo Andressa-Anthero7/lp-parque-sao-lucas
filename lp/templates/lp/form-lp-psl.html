@@ -185,20 +185,21 @@
 		<div id="area-formulário" class="m-2">
 
 			<form id="form" class="p-4 bg-warning border rounded" method="POST" action="">
+				{% csrf_token %}
 				<h5 class="p-2 font-weight-bold text-center" id="header-formulario">Preencha o formulário e confira o valor do seu subsídio!!</h5>
 				<div class="form-group">
 					<label for="nome-leads" class="label-form">Nome</label>
-					<input type="text" class="form-control input-form" name="nome_leads" id="nome-leads">
+					<input type="text" class="form-control " name="nome_leads" id="nome-leads">
 				</div >
 
 				<div class="form-group">
 					<label for="email-leads" class="label-form">E-mail</label>
-					<input type="text" class="form-control  input-form" name="nome_leads" id="email-leads">
+					<input type="text" class="form-control  " name="email_leads" id="email-leads">
 				</div>
 
 				<div class="form-group">
 					<label for="whatsapp-leads" class="label-form">WhatsApp</label>
-					<input type="text" class="form-control  input-form" name="whatsapp_leads" id="whatsapp-leads">
+					<input type="text" class="form-control  " name="whatsapp_leads" id="whatsapp-leads">
 				</div>
 
 
@@ -233,48 +234,42 @@
 		<div id="caracteristica-imovel"  class=" rounded caracteristica-imovel">
 			<h5 class="text-center p-1 " id="header-caracteristica">CARACTERÍSTICAS DO IMÓVEL</h5>
 			<ul>
-				<div>
+
 					<li class="text-left ml-3 p-3">
 						<i class="fa fa-square-o icone-check" aria-hidden="true"></i>
 						<span class="item-caracteristica-imovel">2 Quartos</span>
 					</li>
-				</div>
-				<div>
+
 					<li class="text-left ml-3 p-3">
 						<i class="fa fa-square-o icone-check" aria-hidden="true"></i>
 						<span class="item-caracteristica-imovel">2 Vagas de Garagem</span>
 					</li>
-				</div>
-				<div>
+
 					<li class="text-left ml-3 p-3">
 						<i class="fa fa-square-o icone-check" aria-hidden="true"></i>
 						<span class="item-caracteristica-imovel">Sala de Estar/Jantar</span>
 					</li>
-				</div>
-				<div>
+
 					<li class="text-left ml-3 p-3">
 						<i class="fa fa-square-o icone-check" aria-hidden="true"></i>
 						<span class="item-caracteristica-imovel">Banheiro</span>
 					</li>
-				</div>
-				<div>
+
 					<li class="text-left ml-3 p-3">
 						<i class="fa fa-square-o icone-check" aria-hidden="true"></i>
 						<span class="item-caracteristica-imovel">Lavenderia</span>
 					</li>
-				</div>
-				<div>
+
 					<li class="text-left ml-3 p-3">
 						<i class="fa fa-square-o icone-check" aria-hidden="true"></i>
 						<span class="item-caracteristica-imovel">Item Amplo Quintal</span>
 					</li>
-				</div>
-				<div>
+
 					<li class="text-left ml-3 p-3">
 						<i class="fa fa-square-o icone-check" aria-hidden="true"></i>
 						<span class="item-caracteristica-imovel">Àrea de Lazer</span>
 					</li>
-				</div>
+
 
 			</ul>
 		</div>
@@ -284,8 +279,9 @@
 		<!-- INICIO MAPA LOCALIZAÇAO -->
 		<div id="localizacao" class="p-2">
 				<h5 class="text-center p-1" id="header-localizacao">LOCALIZAÇÃO</h5>
-                     <iframe id="mapa-localizacao" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3705.442220809489!2d-48.15660044032574!3d-21.763139540175548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1683255086508!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
+			   <iframe id="mapa-localizacao" class="border rounded" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d118603.11488033613!2d-48.158417!3d-21.728056!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDQzJzQxLjAiUyA0OMKwMDknMzAuMyJX!5e0!3m2!1spt-BR!2sus!4v1686189196567!5m2!1spt-BR!2sus"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+	  </div>
 		<!-- FINAL MAPA LOCALIZAÇÃO -->
 
 		<!- COPY  FINAL E BTN VOLTAR FORMULÁRIO -->

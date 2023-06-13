@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html>
+<head>
+
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Realize seu Imovel - Parque São Lucas </title>
+
+
+	<!-- Jquery CDN -->
+	 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+	<!-- Boostrap 4 CDN  -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+	 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+
+
+	<!-- FontAwesome CDN -->
+	<script src="https://kit.fontawesome.com/a69cec9c91.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="fontawesome/css/all.css">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+
+
+	<!-- CSS -->
+	 <link rel="stylesheet" type="text/css" href="{% static 'css/estilo-dashboard.css' %}">
+
+
+	<!-- Java Script -->
+	<script type="text/javascript" src="{% static 'js/script-dashboard.js' %}"></script>
+
+
+	<!-- SCRIPT DATA ATUAL -->
+	<script>
+		$( document ).ready(function() {
+
+
+
+
+
+			dayName = new Array ("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado")
+		   monName = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+		   now = new Date
+		   $('#data-hora-header').html("<span> Hoje é " + dayName[now.getDay() ] + ", " + now.getDate () + " de " + monName [now.getMonth() ]   +  " de "  +     now.getFullYear () + ". </span>")
+
+
+
+	   });
+	</script>
+
+
+</head>
+
+<!-- Corpo do HTML -->
+<body >
+	<!-- Container -->
+	<div class="container-fluid ">
+		<!-- Header da Pagina -->
+		<header id="header" class="bg-white">
+			<!-- Imagem da Logo -->
+			<img src="{% static 'img/logo-marca.png' %}" id="img-logo">
+
+
+
+		</header>
+
+
+		<!-- Header do Dashboard -->
+		<div id="header-dashboard" class="text-center">
+				<!--DATA DO DIA DATA DO HEADER -->
+				<div id="data-hora-header" ></div>
+		</div>
+
+		<!-- NAVEGAÇAO -->
+			<nav id="navegacao">
+				<!--BARRA DE PESQUISA -->
+				<div id="pesquisa">
+
+						<form method="GET" class="" id="form-pesquisa">
+								<!-- BTN MENU HAMBURGUER -->
+									<i class="fa fa-bars menu-hamburguer-closed btn" data-toggle="collapse" data-target="#menu-deslizante" id="menu-hamburguer" aria-hidden="true"></i>
+
+									<!--INPUT DA BARRA DE PESQUISA -->
+									<input type="text" name="barra-pesquisa" id="barra-pesquisa" class="barra-pesquisa-closed form-control" placeholder="Pesquisar">
+
+									<!--BTN PESQUISAR -->
+									<span id="btn-pesquisar" class=" btn-sm btn-primary ">Ok</span>
+						</form>
+
+
+				</div>
+
+
+
+			</nav>
+			<!-- FINAL NAVEGAÇÃO -->
+
+			<!--DASHBOARD -->
+		<div id="dashboard">
+			<!-- Header do Leads Board -->
+				<h4 id="header-leads-board" class="text-left m-1 p-2">Gerenciador de Leads</h4>
+				<!-- Sub Header -->
+				<h5 id="sub-header-leads-board" class="text-center m-1 p-2">Principal</h5>
+			<!-- Leads Board -->
+			<div id="leads-board" class="border border-dark">
+
+
+				{% for leads in leads %}
+				<!--Leads -->
+				<script>
+					$(window).on('load', function(){
+						$(document).on('click', '#leads-{{leads.pk}}', function(){
+							$('#leadsModal-{{leads.pk}}').modal('show');
+							var formData = new FormData();
+
+
+                        formData.append('status_aberto','SIM')
+
+
+
+
+
+
+                      var request = new XMLHttpRequest()
+
+
+                      request.open('POST', 'https://nix2022.pythonanywhere.com/abrirleads/{{leads.pk}}/',false)
+
+
+
+                      const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+
+
+                      request.setRequestHeader('X-CSRFToken', csrftoken)
+
+
+
+                      request.send(formData)
+
+                      	$('#leadsModal-{{leads.pk}}').modal('show');
+						});
+					});
+
+
+					</script>
+
+				<div class=" leads" id="leads-{{leads.pk}}" data-target="#leadsModal-{{leads.pk}}"    >
+
+
+
+
+					<div id="envelope">
+
+						<i class="fa fa-envelope envelope-leads leads-novo"  aria-hidden="true"></i>
+
+					</div>
+					<div id="remetente">{{leads.nome_leads|slice:':30'}}</div>
+
+					<div id="data-horario" class="text-left">{{leads.data_recebimento|slice:"8:10"}}-{{leads.data_recebimento|slice:"5:7"}}-{{leads.data_recebimento|slice:"0:4"}} às{{leads.data_recebimento|slice:"10:19"}}</div>
+
+
+				</div>
+				<!--Final do Leads -->
+				<!--SCRIPT ABRE ENVELOPE LEADS-->
+
+
+
+
+
+
+
+
+
+
+				<!-- SCRIPT LEADS HOVER -->
+				<script type="text/javascript" src="{% static 'js/script-leads-hover.js' %}"></script>
+
+
+
+
+
+			  		<!-- MODAL DO LEADS -->
+				<div class="modal fade col-sm-6" id="leadsModal-{{leads.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<!-- MODAL DIALOG -->
+				  <div class="modal-dialog  " role="document">
+				  	<!-- MODAL CONTENT -->
+				    <div class="modal-content">
+				      <div class="modal-header p-0">
+				        <h5 class="modal-title ml-3 p-2 bg-primary text-white " id="exampleModalLabel">Leads - Id {{leads.pk}}</h5>
+				        <button type="button" class="close m-1" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+						  <!--Script atualizar apos dismiss -->
+						 <script>
+							  $(document).on('click','.close', function(){
+						  		window.location.reload();
+						  	  });
+						 </script>
+				      </div>
+				      <!-- MODAL BODY -->
+				      <div class="modal-body py-1 m-0">
+
+				      				<!--Info do Leads -->
+				      	<div id="info-leads">
+
+
+
+					    	<!-- CAMPO  DATA DE RECEBIMENTO -->
+					         <div class="my-2 text-center text-dark" id="">
+					         	<div  class="text-dark font-weight-bold text-uppercase">Recebido em</div>
+					         	<div class="text-info-leads"> {{leads.data_recebimento|slice:"0:19"}}</div>
+					         </div>
+
+								<!-- CAMPO REMETENTE -->
+					        <div class="my-2" id="">
+					        	<div class=" text-primary ml-1 p-1  label-info-leads remetente-label text-uppercase">Remetente</div>
+					        	<div class="text-info-leads ml-3"  id="info-nome"> {{leads.nome_leads}}</div>
+					    	</div>
+
+					         <!-- CAMPO EMAIL -->
+					         <div class="my-2" id="">
+					         	<div class=" text-primary ml-1  p-1 label-info-leads text-uppercase">Email</div>
+					         	<div class=" text-info-leads text-info-leads-2 ml-3">{{leads.email}}</div>
+					         </div>
+
+					         <!-- CAMPO WHATSAPP -->
+					         <div class=" text-center" id="">
+					         	<i   class="   fa fa-whatsapp font-weight-bold link-whatsapp"><span class="text-dark " id="whatsapp-leads">{{leads.whatsapp}}<span></i>
+				         	 </div>
+
+				         	 <!-- BTN INICIAR ATENDIMENTO -->
+				         	 <a href="" id="iniciar-atendimento" class="btn btn-lg btn-primary text-center ">Iniciar Atendimento</a>
+
+
+
+
+				        </div>
+
+
+
+
+
+
+
+
+
+
+
+					</div>
+					<!-- FINAL MODAL BODY -->
+
+
+					</div>
+					<!-- FINAL MODAL CONTENT -->
+				<!-- MODAL DIALOG -->
+				</div>
+
+				</div>
+				<!--Final Modal -->
+				{% endfor %}
+
+			</div>
+			<!-- FINAL Leads Board -->
+
+
+
+
+
+
+		</div>
+		<!-- FINAL DASHBOARD AREA-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<!-- FOOTER -->
+		<footer >
+			<i class="fa fa-copyright text-center" aria-hidden="true">Copyright</i>
+			<div>Antherus - Desenvolvimento Web</div>
+			<small><i class="fa fa-whatsapp mr-1" aria-hidden="true"></i><span>(16) 99337-9492</span></small>
+		</footer>
+
+
+
+	</div>
+	<!-- FINAL CONTAINER -->
+
+
+
+
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
