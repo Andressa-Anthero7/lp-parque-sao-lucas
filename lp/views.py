@@ -1,7 +1,8 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from datetime import datetime
 from .models import LeadsPsl
-from .whatsapp import notificacao
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -24,11 +25,6 @@ def landingpage_form_psl(request):
                                 email=email_leads,
                                 whatsapp=whatsapp_leads,
                                 data_recebimento=data_recebimento)
-        leads = LeadsPsl.objects.last()
-        account_sid = 'ACc4b4a408cd71392b6e1240e43319dade'
-        auth_token = '2313858665f1d7d814dc5e8a6efbec4a'
-
-        notificacao(leads.pk, account_sid, auth_token)
         return redirect('pagina-agradecimento')
     else:
         return render(request, 'lp/form-lp-psl.html')
@@ -38,6 +34,12 @@ def pagina_agradecimento(request):
     return render(request, 'lp/pagina-agradecimento.html')
 
 
+@login_required
 def dashboard(request):
-    leads = LeadsPsl.objects.all()
+    leads = LeadsPsl.objects.all().order_by('-data_recebimento')
+    busca = request.GET.get('barra-pesquisa')
+    if busca:
+        leads = LeadsPsl.objects.filter(
+            Q(nome_leads__icontains=busca) | Q(whatsapp=busca) | Q(email__icontains=busca) | Q(
+                data_recebimento__icontains=busca))
     return render(request, 'lp/dashboard.html', {'leads': leads})
