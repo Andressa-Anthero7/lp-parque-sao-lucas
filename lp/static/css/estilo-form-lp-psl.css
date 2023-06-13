@@ -738,8 +738,13 @@ li{
     }
 
     .caracteristica-imovel{
+         background-image: url("https://andressa-anthero7.github.io/LP-CORRETORES-IMOB/fundo-caracteristica-imovel.png");
         background-color: yellow;
-        min-height: 36em;
+        background-repeat: no-repeat;
+         background-position: center;
+         background-size: cover;
+
+          min-height: 36em;
     }
 
     #header-caracteristica{
@@ -898,28 +903,6 @@ li{
 
     }
 
-     @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-        transform: scale(2);
-      }
-      51% {
-        opacity: 0;
-        transform: scale(0);
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    #header-copy-lp-2{
-         animation: blink 1s  10;
-    }
-
     #header-copy-lp, #header-copy-lp-2{
         position: relative;
         top:0em;
@@ -1052,7 +1035,7 @@ li{
     }
 
     .caracteristica-imovel{
-         background-image: url("fundo-caracteristica-imovel.png");
+         background-image: url("https://andressa-anthero7.github.io/LP-CORRETORES-IMOB/fundo-caracteristica-imovel.png");
         background-color: yellow;
         background-repeat: no-repeat;
          background-position: center;
@@ -1215,28 +1198,6 @@ li{
 
     }
 
-     @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-        transform: scale(2);
-      }
-      51% {
-        opacity: 0;
-        transform: scale(0);
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    #header-copy-lp-2{
-         animation: blink 1s  10;
-    }
-
     #header-copy-lp{
         position: relative;
         top:-2em;
@@ -1371,7 +1332,11 @@ li{
 
     .caracteristica-imovel{
 
+         background-image: url("https://andressa-anthero7.github.io/LP-CORRETORES-IMOB/fundo-caracteristica-imovel.png");
         background-color: yellow;
+        background-repeat: no-repeat;
+         background-position: center;
+         background-size: cover;
 
 
           min-height: 40em;
