@@ -9,6 +9,8 @@
 
 
 
+
+
 /* Celulares Moto G*/
 @media (max-width:  767.97px) {
     body{
@@ -24,9 +26,16 @@
 
          background: lavender;
 
-        min-height: 900px;
+        max-height: 2000px;
 
 
+
+
+    }
+
+
+    :-webkit-scrollbar {
+        width: 5px;
 
     }
 
@@ -37,13 +46,14 @@
 
 
     .container-fluid{
-        max-width:767px;
+        min-width:320px;
+        overflow-x: hidden;
 
 
     }
 
     #header{
-        width:415px;
+        min-width:428px;
         background: #0E0816;
         position: relative;
         left:-1em;
@@ -56,13 +66,22 @@
         left:1em;
     }
 
+    #btn-logout{
+        position:absolute;
+        left:55%;
+        top:1em;
+    }
+
+
+
+
+
     #data-hora-header{
-        max-width: 330px;
+        max-width: 428px;
         position: relative;
         left:0em;
-        font-size: 1.2em;
+        font-size: 1em;
         font-weight: 600;
-
         white-space: nowrap;
 
     }
@@ -82,7 +101,7 @@
     }
 
     #barra-pesquisa{
-        max-width: 360px;
+        min-width: 400px;
         padding-left:2em;
         position: relative;
         left:0.3em;
@@ -238,11 +257,12 @@
     #dashboard{
         border:1px solid black;
         border-radius:1%;
-        min-width: 350px;
+        min-width: 420px;
+
 
         position: relative;
         top: 1em;
-        left: 0em;
+        left: -1em;
     }
 
     #leads-board{
@@ -266,7 +286,7 @@
 
     .leads{
         background: white;
-        max-width: 360px;
+        max-width: 428px;
         max-height: 3.5em;
         position: relative;
         left: 0em;
@@ -506,7 +526,7 @@
 
 
 
-/* Celulares Moto G*/
+
 @media(min-width:  768px) and (max-width: 1023.97px){
     body{
 
@@ -550,8 +570,22 @@
         max-width:300px;
         max-height: 70px;
         position: relative;
-        left:1em;
+        left:5em;
     }
+
+
+    #btn-logout{
+        position:absolute;
+        left:60%;
+        top:1em;
+    }
+
+
+
+
+
+
+
 
     #data-hora-header{
         max-width: 1024x;
@@ -933,7 +967,14 @@
         max-width:300px;
         max-height: 70px;
         position: relative;
-        left:1em;
+        left:5em;
+    }
+
+
+    #btn-logout{
+        position:absolute;
+        left:75%;
+        top:1em;
     }
 
     #data-hora-header{
@@ -1319,7 +1360,14 @@
         max-width:300px;
         max-height: 70px;
         position: relative;
-        left:1em;
+        left:5em;
+    }
+
+
+     #btn-logout{
+        position:absolute;
+        left:80%;
+        top:1em;
     }
 
     #data-hora-header{
