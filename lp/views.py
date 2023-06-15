@@ -42,4 +42,4 @@ def dashboard(request):
         leads = LeadsPsl.objects.filter(
             Q(nome_leads__icontains=busca) | Q(whatsapp=busca) | Q(email__icontains=busca) | Q(
                 data_recebimento__icontains=busca))
-    return render(request, 'lp/dashboard.html', {'leads': leads})
+    return render(request, 'lp/dashboard.html', {'leads': leads, 'busca': busca})

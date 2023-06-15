@@ -40,10 +40,28 @@
 		$( document ).ready(function() {
 
 			$(document).on('click','#menu-hamburguer', function(){
-				window.location.href='http://127.0.0.1:8000/dashboard/';
+				window.location.href="{% url 'dashboard' %}";
 			})
 
-			$('.modal-logout').modal('hide');
+			$('input').keyup(function(){
+				tam = $(this).val();
+				if(tam.length > 0){
+					$('#menu-hamburguer').removeClass('fa-refresh').addClass('fa-search');
+				}
+			})
+
+			$(document).on('click','.fa-search',function(){
+				$('form').submit();
+			})
+
+
+
+
+
+
+
+
+
 
 
 
@@ -117,11 +135,12 @@
 
 						<form method="GET" class="" id="form-pesquisa">
 								<!-- BTN MENU HAMBURGUER -->
-									<i class="fa fa-refresh menu-hamburguer-closed btn mx-2" data-toggle="collapse" data-target="#menu-deslizante" id="menu-hamburguer" aria-hidden="true"></i>
+									<i class="fa fa-refresh btn mx-2"  id="menu-hamburguer" aria-hidden="true"></i>
 
 
 									<!--INPUT DA BARRA DE PESQUISA -->
-									<input type="text" name="barra-pesquisa" id="barra-pesquisa" class="barra-pesquisa-closed form-control" placeholder="Pesquisar">
+									<input type="text" name="barra-pesquisa" id="barra-pesquisa" class=" form-control" placeholder="Pesquisar" value="{{busca|default_if_none:''}}">
+
 
 
 
@@ -197,15 +216,15 @@
 
 
 			  		<!-- MODAL DO LEADS -->
-				<div class="modal fade col-sm-6" id="leadsModal-{{leads.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade " id="leadsModal-{{leads.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<!-- MODAL DIALOG -->
 				  <div class="modal-dialog  " role="document">
 				  	<!-- MODAL CONTENT -->
 				    <div class="modal-content">
 				      <div class="modal-header p-0">
 				        <h5 class="modal-title ml-3 p-2 bg-primary text-white " id="exampleModalLabel">Leads - Id {{leads.pk}}</h5>
-				        <button type="button" class="close m-1" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
+				        <button type="button" class="close m-5 " data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times</span>
 				        </button>
 						  <!--Script atualizar apos dismiss -->
 						 <script>
@@ -215,7 +234,7 @@
 						 </script>
 				      </div>
 				      <!-- MODAL BODY -->
-				      <div class="modal-body py-1 m-0">
+				      <div class="modal-body">
 
 				      				<!--Info do Leads -->
 				      	<div id="info-leads">
@@ -246,7 +265,11 @@
 				         	 </div>
 
 				         	 <!-- BTN INICIAR ATENDIMENTO -->
-				         	 <a href="https://wa.me/55{{leads.whatsapp}}" id="iniciar-atendimento" class="btn btn-lg btn-primary text-center ">Iniciar Atendimento</a>
+							<div class="text-center pb-5">
+								 <a href="https://wa.me/55{{leads.whatsapp}}" target="_blank" id="iniciar-atendimento" class="btn btn-lg btn-primary text-center ">Iniciar Atendimento</a>
+
+							</div>
+
 
 
 
